@@ -31,7 +31,7 @@ export const Header = () => {
 		<Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
 			<Container fluid>
 				<Navbar.Brand to="#home" className='ms-3 ms-lg-5'>
-					<Link className="navbar-brand" to="/">TMovies</Link>
+					<Link className="navbar-brand" to="./">TMovies</Link>
 				</Navbar.Brand>
 
 				{sessionStorage.getItem("token") && <>

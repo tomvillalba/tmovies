@@ -1,4 +1,4 @@
-import axios from "axios";
+// import axios from "axios";
 import Swal from 'sweetalert2';
 import withReactContent from 'sweetalert2-react-content';
 import { Navigate, useNavigate } from "react-router-dom";
@@ -35,14 +35,14 @@ export const Login = () => {
 			swAlert.fire(<p>Credenciales invalidas</p>);
 			return;
 		}
-		axios
-			.post("http://challenge-react.alkemy.org", { email, password })
-			.then(res => {
-				swAlert.fire(<p>Perfecto! ingresaste correctamente</p>);
-				const token = res.data.token;
-				sessionStorage.setItem("token", token);
-				navigate("/listado");
-			});
+		// axios
+		// 	.post("http://challenge-react.alkemy.org", { email, password })
+		// 	.then(res => {
+		swAlert.fire(<p>Perfecto! ingresaste correctamente</p>);
+		// const token = res.data.token;
+		sessionStorage.setItem("token", "token");
+		navigate("/listado");
+		// 	});
 	};
 
 	let token = sessionStorage.getItem("token");
