@@ -1,6 +1,7 @@
 // import axios from "axios";
 import Swal from 'sweetalert2';
 import withReactContent from 'sweetalert2-react-content';
+import { Button, Form } from 'react-bootstrap';
 import { Navigate, useNavigate } from "react-router-dom";
 const swAlert = withReactContent(Swal);
 
@@ -40,7 +41,7 @@ export const Login = () => {
 		// 	.then(res => {
 		swAlert.fire(<p>Perfecto! ingresaste correctamente</p>);
 		// const token = res.data.token;
-		sessionStorage.setItem("token", "token");
+		sessionStorage.setItem("token", "token-simulado");
 		navigate("/listado");
 		// 	});
 	};
@@ -52,22 +53,22 @@ export const Login = () => {
 			{token && <Navigate to="/listado" />}
 			<div>
 				<h2 className="display-6 text-dark mt-3">Formulario de login</h2>
-				<form className="d-flex flex-column justify-content-center align-items-center" onSubmit={submitHandler}>
+				<Form className="d-flex flex-column justify-content-center align-items-center" onSubmit={submitHandler}>
 					<br />
-					<label className="form-label">
+					<Form.Label>
 						<span>Correo electrónico</span>
 						<br />
-						<input type="text" name="email" className="form-control" />
-					</label>
+						<Form.Control type="text" name="email" className="form-control" />
+					</Form.Label>
 					<br />
-					<label className="form-label">
+					<Form.Label>
 						<span>Contraseña</span>
 						<br />
-						<input type="password" name="password" className="form-control" />
-					</label>
+						<Form.Control type="password" name="password" className="form-control" />
+					</Form.Label>
 					<br />
-					<button type="submit" className="btn btn-success">Ingresar</button>
-				</form>
+					<Button type="submit" className="btn btn-success">Ingresar</Button>
+				</Form>
 			</div>
 
 		</div>
