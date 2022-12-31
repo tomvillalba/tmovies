@@ -11,6 +11,8 @@ const swAlert = withReactContent(Swal);
 
 export const Detalle = () => {
 
+	const { addOrRemoveFavorite } = useContext(Context);
+	addOrRemoveFavorite();
 	let token = sessionStorage.getItem("token");
 	let query = new URLSearchParams(window.location.search);
 	let movieID = query.get("movieID");
