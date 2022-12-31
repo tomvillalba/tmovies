@@ -11,7 +11,6 @@ export const Buscador = () => {
 	const submitHandler = (e) => {
 		e.preventDefault();
 		const keyword = e.target.keyword.value.trim();
-		console.log(keyword);
 		if (keyword.length === 0) {
 			return swAlert.fire(<p>Debes escribir una palabra clave </p>);
 		} else if (keyword.length < 4) {

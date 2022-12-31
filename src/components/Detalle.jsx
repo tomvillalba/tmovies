@@ -4,15 +4,12 @@ import axios from "axios";
 import Swal from 'sweetalert2';
 import withReactContent from 'sweetalert2-react-content';
 import { apiKey } from '../App';
-import { useContext } from "react";
-import { Context } from '../context/Context';
+
 
 const swAlert = withReactContent(Swal);
 
 export const Detalle = () => {
 
-	const { addOrRemoveFavorite } = useContext(Context);
-	addOrRemoveFavorite();
 	let token = sessionStorage.getItem("token");
 	let query = new URLSearchParams(window.location.search);
 	let movieID = query.get("movieID");

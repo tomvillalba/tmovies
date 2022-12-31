@@ -11,8 +11,6 @@ const swAlert = withReactContent(Swal);
 
 export const Resultados = () => {
 
-	// window.scrollTo(0, 0);
-
 	let token = sessionStorage.getItem('token');
 	const location = useLocation();
 	let searchParams = new URLSearchParams(location.search);
@@ -33,7 +31,7 @@ export const Resultados = () => {
 				swAlert.fire(<p>Uuuups...a Algo salió mal</p>);
 			}
 			);
-	}, [search]); // aquí se pasa el valor de search como dependencia
+	}, [search]);
 
 	return (
 		<div>

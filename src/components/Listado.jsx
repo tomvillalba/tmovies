@@ -3,6 +3,7 @@ import { Navigate } from "react-router-dom";
 import axios from "axios";
 import Swal from 'sweetalert2';
 import withReactContent from 'sweetalert2-react-content';
+
 import { Card } from "./Card";
 import { apiKey } from "../App";
 
@@ -33,6 +34,7 @@ export const Listado = () => {
 			<div className="row carta">
 				{
 					moviesList.map((movie, idx) => {
+
 						return (
 							movie.poster_path &&
 							<Card key={idx} movie={movie} />
