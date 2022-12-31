@@ -1,4 +1,4 @@
-import { Link, useLocation } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import { Nav, Navbar } from "react-bootstrap";
 import Container from 'react-bootstrap/Container';
 import Swal from 'sweetalert2';
@@ -28,10 +28,10 @@ export const Header = () => {
 
 
 	return (
-		<Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
+		<Navbar collapseOnSelect expand="lg" bg="dark" variant="dark" fixed="top">
 			<Container fluid>
 				<Navbar.Brand to="#home" className='ms-3 ms-lg-5'>
-					<Link className="navbar-brand" to="./">TMovies</Link>
+					<Nav.Link href="/">TMovies</Nav.Link>
 				</Navbar.Brand>
 
 				{sessionStorage.getItem("token") && <>

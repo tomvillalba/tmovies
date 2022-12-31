@@ -1,6 +1,5 @@
 //libraries
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-
 //components
 import { Header } from './components/Header';
 import { Listado } from './components/Listado';
@@ -19,14 +18,17 @@ export const apiKey = "69d166897e8982a44f87677f760d16ad";
 
 
 const App = () => {
+	const addOrRemoveFavorite = (movie) => {
+		console.log("funcionó");
+	};
 
 	return (
 
-		<BrowserRouter serRouter>
-
+		<BrowserRouter serRouter >
 			<Header />
 
-			<div className="container-xxl d-flex justify-content-center mt-4" style={{ minHeight: "100vh" }}>
+			<div className="container-lg d-flex justify-content-center" style={{ minHeight: "100vh", marginTop: "90px" }}>
+
 				<Routes>
 					<Route path="*" element={<p>Esa página no existe</p>} />
 					<Route index element={<Login />} />
@@ -35,6 +37,9 @@ const App = () => {
 					<Route exact path="/detalle" element={<Detalle />} />
 					<Route exact path="/resultados" element={<Resultados />} />
 				</Routes>
+
+
+
 			</div>
 
 			<Footer />

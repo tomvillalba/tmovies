@@ -4,19 +4,19 @@ import axios from "axios";
 import Swal from 'sweetalert2';
 import withReactContent from 'sweetalert2-react-content';
 import { apiKey } from '../App';
+import { useContext } from "react";
+import { Context } from '../context/Context';
 
 const swAlert = withReactContent(Swal);
 
 export const Detalle = () => {
 
-	window.scrollTo(0, 0);
-
+	const valor = useContext(Context);
+	console.log(valor);
 	let token = sessionStorage.getItem("token");
 
 	let query = new URLSearchParams(window.location.search);
 	let movieID = query.get("movieID");
-
-
 
 	const [movie, setMovie] = useState(null);
 
@@ -37,7 +37,7 @@ export const Detalle = () => {
 
 	return (
 
-		<div>
+		<div >
 			{!token && <Navigate to="/" />}
 			{!movie && <p>Cargando...</p>}
 			{movie &&
@@ -45,7 +45,7 @@ export const Detalle = () => {
 					<h2 className="">{movie.title}</h2>
 					<div className="row">
 						<div className="col-4">
-							<img src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} className="card-img-top rounded-3" alt={movie.title} />
+							<img src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} className="card-img-top rounded-3" alt={movie.title} style={{ "aspectRatio": 2 / 3 }} />
 						</div>
 						<div className="col-8">
 							<h5 >Fecha de estreno: {movie.release_date}</h5>

@@ -36,27 +36,25 @@ export const Resultados = () => {
 	}, [search]); // aquí se pasa el valor de search como dependencia
 
 	return (
-		<>
+		<div>
 			{!token && <Navigate to="/" />}
 			{!moviesResults && <p>Cargando...</p>}
-			<div>
-				<h2>Buscaste: <em>{search}</em> </h2>
-				{moviesResults.length === 0
-					? <h3><em>No hay resultados</em> </h3>
-					: <h3>Resultados: <em>{totalResults}</em> </h3>}
+			<h3>Buscaste: <b>{search}</b> </h3>
+			{moviesResults.length === 0
+				? <h4><em>No hay resultados</em> </h4>
+				: <h5>Resultados: <em>{totalResults}</em> </h5>}
 
 
-				<div className="row carta">
-					{
-						moviesResults.map((movie, idx) => {
-							return (
-								movie.poster_path &&
-								<Card key={idx} movie={movie} overview={false} />
-							);
-						})
-					}
-				</div>
+			<div className="row carta">
+				{
+					moviesResults.map((movie, idx) => {
+						return (
+							movie.poster_path &&
+							<Card key={idx} movie={movie} overview={false} />
+						);
+					})
+				}
 			</div>
-		</>
+		</div>
 	);
 };

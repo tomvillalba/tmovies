@@ -1,4 +1,3 @@
-// import axios from "axios";
 import Swal from 'sweetalert2';
 import withReactContent from 'sweetalert2-react-content';
 import { Button, Form } from 'react-bootstrap';
@@ -23,54 +22,56 @@ export const Login = () => {
 		};
 
 		if (email === "" || password === "") {
-			swAlert.fire(<p>Por favor, complete todos los campos</p>);
-			return;
+			return swAlert.fire(<p>Por favor, complete todos los campos</p>);
 		}
 
 		if (email !== "" && !regexEmail(email)) {
-			swAlert.fire(<p>Debes escribir una dirección valida</p>);
-			return;
+			return swAlert.fire(<p>Debes escribir una dirección valida</p>);
 		}
 
 		if (email !== "challenge@alkemy.org" || password !== "react") {
-			swAlert.fire(<p>Credenciales invalidas</p>);
-			return;
+			return swAlert.fire(<p>Credenciales invalidas</p>);
 		}
-		// axios
-		// 	.post("http://challenge-react.alkemy.org", { email, password })
-		// 	.then(res => {
 		swAlert.fire(<p>Perfecto! ingresaste correctamente</p>);
-		// const token = res.data.token;
 		sessionStorage.setItem("token", "token-simulado");
 		navigate("/listado");
-		// 	});
 	};
 
 	let token = sessionStorage.getItem("token");
 
 	return (
-		<div className="">
+		<>
 			{token && <Navigate to="/listado" />}
 			<div>
 				<h2 className="display-6 text-dark mt-3">Formulario de login</h2>
 				<Form className="d-flex flex-column justify-content-center align-items-center" onSubmit={submitHandler}>
+
 					<br />
-					<Form.Label>
-						<span>Correo electrónico</span>
-						<br />
-						<Form.Control type="text" name="email" className="form-control" />
-					</Form.Label>
+
+					<Form.Group>
+						<Form.Label>
+							<span>Correo electrónico</span>
+							<br />
+							<Form.Control type="text" name="email" />
+						</Form.Label>
+					</Form.Group>
+
 					<br />
-					<Form.Label>
-						<span>Contraseña</span>
-						<br />
-						<Form.Control type="password" name="password" className="form-control" />
-					</Form.Label>
+
+					<Form.Group>
+						<Form.Label>
+							<span>Contraseña</span>
+							<br />
+							<Form.Control type="password" name="password" />
+						</Form.Label>
+					</Form.Group>
+
 					<br />
-					<Button type="submit" className="btn btn-success">Ingresar</Button>
+					<Button type="submit" variant="success">Ingresar</Button>
+
 				</Form>
 			</div>
 
-		</div>
+		</>
 	);
 };

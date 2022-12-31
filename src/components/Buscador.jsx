@@ -4,7 +4,6 @@ import Swal from 'sweetalert2';
 import withReactContent from 'sweetalert2-react-content';
 const swAlert = withReactContent(Swal);
 
-
 export const Buscador = () => {
 
 	const navigate = useNavigate();
@@ -20,7 +19,6 @@ export const Buscador = () => {
 		} else {
 			e.target.keyword.value = "";
 			navigate(`/resultados/?search=${keyword}`);
-			// window.location.reload();
 		}
 	};
 
