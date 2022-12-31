@@ -3,12 +3,22 @@ import { createContext } from "react";
 export const Context = createContext();
 
 export const ContextProvider = (props) => {
-	let x = 20;
-	return (
-		<Context.Provider value={x}>
-			{props.children}
-		</Context.Provider>
-	);
-};
 
+	const addOrRemoveFavorite = (movie) => {
+		console.log("funcionó");
+	};
+
+
+
+
+	return (
+		<>
+			<Context.Provider value={
+				{ addOrRemoveFavorite }
+			}>
+				{props.children}
+			</Context.Provider>
+		</>
+	);
+}
 

@@ -9,7 +9,6 @@ import { apiKey } from "../App";
 const swAlert = withReactContent(Swal);
 export const Listado = () => {
 
-	// console.log(props);
 
 	let token = sessionStorage.getItem("token");
 

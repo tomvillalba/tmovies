@@ -11,10 +11,7 @@ const swAlert = withReactContent(Swal);
 
 export const Detalle = () => {
 
-	const valor = useContext(Context);
-	console.log(valor);
 	let token = sessionStorage.getItem("token");
-
 	let query = new URLSearchParams(window.location.search);
 	let movieID = query.get("movieID");
 
