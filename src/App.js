@@ -12,6 +12,7 @@ import { Resultados } from './components/Resultados';
 //importar react-bootstrap
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "./styles/index.css";
+import { Favoritos } from './components/Favoritos';
 
 
 export const apiKey = "69d166897e8982a44f87677f760d16ad";
@@ -36,6 +37,8 @@ const App = () => {
 					<Route exact path="/listado" element={<Listado />} />
 					<Route exact path="/detalle" element={<Detalle />} />
 					<Route exact path="/resultados" element={<Resultados />} />
+					<Route exact path="/favoritos" element={<Favoritos />} />
+
 				</Routes>
 
 

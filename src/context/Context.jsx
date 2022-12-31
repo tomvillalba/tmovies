@@ -13,11 +13,9 @@ export const ContextProvider = (props) => {
 		if (!movieIsInArray) {
 			tempMoviesInFavs.push(movie);
 			localStorage.setItem("favs", JSON.stringify(tempMoviesInFavs));
-			return console.log("se agregó a favoritos");
 		} else {
 			tempMoviesInFavs = tempMoviesInFavs.filter((movieInArray) => movieInArray.id !== movie.id);
 			localStorage.setItem("favs", JSON.stringify(tempMoviesInFavs));
-			return console.log("se quitó de favoritos");
 		}
 	}
 

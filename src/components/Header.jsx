@@ -43,6 +43,7 @@ export const Header = () => {
 							navbarScroll
 						>
 							<Nav.Link href="/listado">Listado</Nav.Link>
+							<Nav.Link href="/favoritos">Favoritos</Nav.Link>
 							<Nav.Link href="/contacto">Contacto</Nav.Link>
 							<Nav.Link onClick={cerrarSesion}>Cerrar Sesión</Nav.Link>
 						</Nav>

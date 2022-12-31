@@ -2,9 +2,11 @@ import React, { useState, useEffect } from "react";
 import CardB from "react-bootstrap/Card";
 import { useContext } from "react";
 import { DataContext } from "../context/Context";
-import { FavoriteAdd, FavoriteAdded } from "./UI/FavoritesMovies";
+import { FavoriteAdd, FavoriteAdded, FavoriteDelete } from "./UI/FavoritesMovies";
 
-export const Card = ({ movie, overview = true }) => {
+export const Card = ({ movie, overview = true, deleteIcon = false }) => {
+
+
 	const [favorite, setfavorite] = useState(false);
 	const { addOrRemoveFavorite } = useContext(DataContext);
 	const handleAddOrRemoveFavorite = () => {
@@ -21,6 +23,7 @@ export const Card = ({ movie, overview = true }) => {
 	}, [movie.id]);
 
 
+
 	return (
 		<div className="col-6 col-md-4 col-xl-3 carta" key={movie.id}>
 			<CardB className="mb-4">
@@ -31,7 +34,9 @@ export const Card = ({ movie, overview = true }) => {
 				/>
 				<CardB.Body>
 					<button className="favorite-btn" onClick={handleAddOrRemoveFavorite}>
-						{favorite ? <FavoriteAdded /> : <FavoriteAdd />}
+						{
+							deleteIcon ? (<FavoriteDelete />) : (favorite ? <FavoriteAdded /> : <FavoriteAdd />)
+						}
 					</button>
 
 					<CardB.Title>
@@ -40,7 +45,7 @@ export const Card = ({ movie, overview = true }) => {
 					{overview && (
 						<CardB.Text className="card-text-cut">{movie.overview}</CardB.Text>
 					)}
-
+					{/* <FavoriteDelete /> */}
 					<CardB.Link
 						href={`/detalle?movieID=${movie.id}`}
 						className="btn btn-primary btn-card"
